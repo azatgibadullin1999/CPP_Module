@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 21:00:45 by root              #+#    #+#             */
-/*   Updated: 2021/07/13 23:07:44 by root             ###   ########.fr       */
+/*   Updated: 2021/07/14 17:31:23 by larlena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,16 @@
 # define PHONEBOOK_CLASS_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
+
+typedef struct s_contact {
+	std::string	first_name;
+	std::string last_name;
+	std::string	nick_name;
+	std::string	phone_number;
+	std::string darkest_secret;
+}				t_contact;
 
 class Phonebook {
 
@@ -26,11 +35,10 @@ public:
 	void	search(void);
 
 private:
-	std::string	first_name[7];
-	std::string last_name[7];
-	std::string	nick_name[7];
-	std::string	phone_number[7];
-	std::string darkest_secret[7];
+	std::string	trimm_string(std::string str);
+	int			number_of_contact;
+	t_contact	contact[7];
+
 };
 
 #endif
