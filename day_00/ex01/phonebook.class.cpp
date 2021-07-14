@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 21:00:42 by root              #+#    #+#             */
-/*   Updated: 2021/07/14 16:25:22 by larlena          ###   ########.fr       */
+/*   Updated: 2021/07/14 21:09:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,15 @@ void	Phonebook::search(void) {
 		std::cout << std::setw(9) << i << "|";
 		std::cout
 			<< std::setw(10)
-			<< (this->contact[i].first_name.size() > 10 ? this->contact[i].first_name. : "")
-			<< this->contact[i].first_name.substr(0, 9)
+			<< this->trimm_string(this->contact[i].first_name)
 			<< "|";
 		std::cout
 			<< std::setw(10)
-			<< (this->contact[i].last_name.size() > 10 ? "." : "")
-			<< this->contact[i].last_name.substr(0, 9)
+			<< this->trimm_string(this->contact[i].last_name)
 			<< "|";
 		std::cout
 			<< std::setw(10)
-			<< (this->contact[i].nick_name.size() > 10 ? "." : "")
-			<< this->contact[i].nick_name.substr(0, 9)
+			<< this->trimm_string(this->contact[i].nick_name)
 			<< "|" << std::endl;
 
 	}
@@ -71,4 +68,13 @@ void	Phonebook::search(void) {
 
 void	Phonebook::exit(void) {
 	std::exit(0);
+}
+
+std::string	Phonebook::trimm_string(std::string str) {
+	std::string	dst;
+
+	dst = str.substr(0, 10);
+	if (str.size() > 10)
+		dst[9] = '.';
+	return dst;
 }
