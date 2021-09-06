@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 16:20:22 by root              #+#    #+#             */
-/*   Updated: 2021/09/05 21:54:09 by root             ###   ########.fr       */
+/*   Created: 2021/08/25 16:09:59 by root              #+#    #+#             */
+/*   Updated: 2021/09/01 16:40:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Animal.hpp"
 
-int	main(int argc, char **argv)
-{
-	if (argc <= 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return 1;
-	}
-	for (int j = 1; j < argc; ++j)
-	{
-		for (int i = 0; argv[j][i]; ++i)
-			std::cout << (char)std::toupper(argv[j][i]);
-	}
-	std::cout << std::endl;
-	return 0;
+Animal::Animal(void) { }
+
+Animal::~Animal(void) { }
+
+Animal::Animal(Animal &animal) : Animal::Animal() {
+	this->_type = animal._type;
+}
+
+Animal	&Animal::operator=(Animal &animal) {
+	this->_type = animal._type;
+	return *this;
+}
+
+
+void		Animal::makeSound(void) {
+	std::cout << " " << std::endl;
+}
+
+std::string	Animal::gettType(void) {
+	return this->_type;
 }

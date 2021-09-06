@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 16:20:22 by root              #+#    #+#             */
-/*   Updated: 2021/09/05 21:54:09 by root             ###   ########.fr       */
+/*   Created: 2021/07/25 18:00:09 by root              #+#    #+#             */
+/*   Updated: 2021/07/29 14:17:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int	main(int argc, char **argv)
+# include <iostream>
+
+class Zombie
 {
-	if (argc <= 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return 1;
-	}
-	for (int j = 1; j < argc; ++j)
-	{
-		for (int i = 0; argv[j][i]; ++i)
-			std::cout << (char)std::toupper(argv[j][i]);
-	}
-	std::cout << std::endl;
-	return 0;
-}
+
+public:
+	Zombie(void);
+	Zombie(std::string zombie_name);
+	~Zombie();
+	void	announce(void);
+	void	resetName(std::string new_name);
+
+private:
+	std::string	NameRandomizer(void);
+	std::string	name;
+	
+};
+
+#endif

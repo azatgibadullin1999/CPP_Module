@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 16:20:22 by root              #+#    #+#             */
-/*   Updated: 2021/09/05 21:54:09 by root             ###   ########.fr       */
+/*   Created: 2021/08/31 14:12:46 by root              #+#    #+#             */
+/*   Updated: 2021/09/05 23:22:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
-int	main(int argc, char **argv)
-{
-	if (argc <= 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return 1;
-	}
-	for (int j = 1; j < argc; ++j)
-	{
-		for (int i = 0; argv[j][i]; ++i)
-			std::cout << (char)std::toupper(argv[j][i]);
-	}
-	std::cout << std::endl;
-	return 0;
-}
+# include <iostream>
+
+class Karen {
+
+	public :
+		Karen(void);
+		~Karen(void);
+
+		void	complain(std::string level);
+
+	private :
+		static void		_info(void);
+		static void		_error(void);
+		static void		_debug(void);
+		static void		_warning(void);
+		void			(*_f[4])(void);
+		std::string	_level[4];
+
+
+} ;
+
+
+#endif

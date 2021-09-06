@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larlena <larlena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 21:00:45 by root              #+#    #+#             */
-/*   Updated: 2021/07/14 17:31:23 by larlena          ###   ########.fr       */
+/*   Updated: 2021/07/19 18:19:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ public:
 	~Phonebook(void);
 	void	add(void);
 	void	exit(void);
-	void	search(void);
+	void	search(void) const;
 
 private:
-	std::string	trimm_string(std::string str);
+	std::string	trimm_string(std::string str) const;
 	int			number_of_contact;
 	t_contact	contact[7];
 

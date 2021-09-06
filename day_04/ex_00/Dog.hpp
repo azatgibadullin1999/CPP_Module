@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 16:20:22 by root              #+#    #+#             */
-/*   Updated: 2021/09/05 21:54:09 by root             ###   ########.fr       */
+/*   Created: 2021/08/28 20:39:17 by root              #+#    #+#             */
+/*   Updated: 2021/09/01 16:37:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int	main(int argc, char **argv)
-{
-	if (argc <= 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return 1;
-	}
-	for (int j = 1; j < argc; ++j)
-	{
-		for (int i = 0; argv[j][i]; ++i)
-			std::cout << (char)std::toupper(argv[j][i]);
-	}
-	std::cout << std::endl;
-	return 0;
-}
+# include <iostream>
+# include "Animal.hpp"
+
+class Dog : public Animal {
+
+	public :
+		Dog(void);
+		~Dog(void);
+		Dog(Dog &dog);
+
+		Dog	&operator=(Dog &dog);
+
+		virtual void	makeSound(void);
+
+} ;
+
+#endif

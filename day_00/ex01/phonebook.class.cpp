@@ -6,14 +6,14 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 21:00:42 by root              #+#    #+#             */
-/*   Updated: 2021/07/14 21:09:13 by root             ###   ########.fr       */
+/*   Updated: 2021/09/05 21:58:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.class.hpp"
 
-Phonebook::Phonebook(void) {
-	this->number_of_contact = -1;
+Phonebook::Phonebook(void) : number_of_contact(-1) {
+	return ;
 }
 
 Phonebook::~Phonebook(void) {
@@ -35,11 +35,10 @@ void	Phonebook::add(void) {
 	std::cin >> this->contact[this->number_of_contact].darkest_secret;
 }
 
-void	Phonebook::search(void) {
-	char	buf;
+void	Phonebook::search(void) const {
 	int		index;
 
-	for (size_t i = 0; i <= this->number_of_contact; ++i) {
+	for (int i = 0; i <= this->number_of_contact; ++i) {
 		std::cout << std::setw(9) << i << "|";
 		std::cout
 			<< std::setw(10)
@@ -70,7 +69,7 @@ void	Phonebook::exit(void) {
 	std::exit(0);
 }
 
-std::string	Phonebook::trimm_string(std::string str) {
+std::string	Phonebook::trimm_string(std::string str) const {
 	std::string	dst;
 
 	dst = str.substr(0, 10);

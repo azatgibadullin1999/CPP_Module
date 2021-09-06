@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 16:20:22 by root              #+#    #+#             */
-/*   Updated: 2021/09/05 21:54:09 by root             ###   ########.fr       */
+/*   Created: 2021/08/25 16:10:14 by root              #+#    #+#             */
+/*   Updated: 2021/08/31 20:36:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-int	main(int argc, char **argv)
-{
-	if (argc <= 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return 1;
-	}
-	for (int j = 1; j < argc; ++j)
-	{
-		for (int i = 0; argv[j][i]; ++i)
-			std::cout << (char)std::toupper(argv[j][i]);
-	}
-	std::cout << std::endl;
-	return 0;
-}
+# include <iostream>
+
+class Animal {
+
+	public :
+		Animal(void);
+		~Animal(void);
+		Animal(Animal &animal);
+
+		Animal	&operator=(Animal &animal);
+
+		void		makeSound(void);
+
+		std::string	gettType(void);
+
+	protected :
+		std::string	_type;
+
+} ;
+
+#endif
